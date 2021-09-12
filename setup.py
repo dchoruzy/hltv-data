@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="hltv-data",
-    version="0.0.1",
+    version="0.1.0",
     author="Dariusz Choruzy",
     author_email="dariusz.choruzy@gmail.com",
     description="HLTV.org data",
@@ -23,7 +23,7 @@ setuptools.setup(
     ],
     packages=setuptools.find_packages(),
     python_requires=">=3.6",
-    install_requires= [
+    install_requires=[
         "beautifulsoup4",
         "soupsieve",
         "requests",
