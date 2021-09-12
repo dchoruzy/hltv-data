@@ -6,7 +6,7 @@ MATCHES_URL = f"{BASE_URL}/results"
 RANKING_URL = f"{BASE_URL}/ranking/teams"
 
 
-class Client:
+class HLTVClient:
     def _soup_from_url(self, url):
         r = requests.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
