@@ -43,7 +43,7 @@ class HLTVClient:
         for match in matches:
             event = match.find("span", {"class": "event-name"}).text.strip()
             teams = [item.text.strip() for item in match.find_all("div", {"class": "team"})]
-            result = [item.text.strip() for item in match.find("td", {"class": "result-score"}).find_all("span")]
+            result = [int(item.text.strip()) for item in match.find("td", {"class": "result-score"}).find_all("span")]
             match_data = {
                 "event": event,
                 "team_1": {
@@ -73,8 +73,3 @@ class HLTVClient:
             }
             ranking.append(ranking_item)
         return ranking
-
-
-print(
-    HLTVClient().get_matches()
-)
