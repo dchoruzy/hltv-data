@@ -104,20 +104,26 @@ Response:
 [
     {
         "event": "ESL Pro League Season 14",
-        "team_1": {"name": "OG", "result": "0"},
-        "team_2": {"name": "Vitality", "result": "2"},
+        "team_1": {
+            "name": "Vitality",
+            "result": 2
+        },
+        "team_2": {
+            "name": "Natus Vincere",
+            "result": 3
+        }
     },
     {
-        "event": "IEM Fall 2021 Asia Open Qualifier 2",
-        "team_1": {"name": "NKT", "result": "16"},
-        "team_2": {"name": "DEADiNSIDE", "result": "7"},
-    },
-    {
-        "event": "IEM Fall 2021 Asia Open Qualifier 2",
-        "team_1": {"name": "Born in the East", "result": "5"},
-        "team_2": {"name": "CatEvil", "result": "16"},
-    },
-    ...
+        "event": "Fragadelphia 15",
+        "team_1": {
+            "name": "Third Impact",
+            "result": 1
+        },
+        "team_2": {
+            "name": "Coldest Riders",
+            "result": 2
+        }
+    }
 ]
 ```
 
