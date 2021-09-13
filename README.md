@@ -123,7 +123,8 @@ Response:
             "name": "Coldest Riders",
             "result": 2
         }
-    }
+    },
+    ...
 ]
 ```
 
