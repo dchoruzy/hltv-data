@@ -1,8 +1,12 @@
+from datetime import datetime
+
 import requests
 from bs4 import BeautifulSoup
 
+
 BASE_URL = "https://www.hltv.org"
-MATCHES_URL = f"{BASE_URL}/results"
+MATCHES_URL = f"{BASE_URL}/matches"
+RESULTS_URL = f"{BASE_URL}/results"
 RANKING_URL = f"{BASE_URL}/ranking/teams"
 
 
@@ -12,9 +16,29 @@ class HLTVClient:
         soup = BeautifulSoup(r.text, "html.parser")
         return soup
 
+    def get_matches(self):
+        matches = []
+        soup = self._soup_from_url(MATCHES_URL)
+        matches_html = soup.find("div", {"class": "upcomingMatchesWrapper"}).find_all("div", {"class": "upcomingMatch"})
+        for match in matches_html:
+            event_el = match.find("div", {"class": "matchEventName"})
+            if event_el:
+                event = event_el.text.strip()
+                teams = [item.text.strip() for item in match.find_all("div", {"class": "matchTeam"})]
+                date = datetime.fromtimestamp(int(match["data-zonedgrouping-entry-unix"][0:10])).isoformat()
+                match_data = {
+                    "event": event,
+                    "date": date,
+                    "team_1": teams[0],
+                    "team_2": teams[1]
+                }
+                matches.append(match_data)
+        return matches
+
+
     def get_results(self):
         results = []
-        soup = self._soup_from_url(MATCHES_URL)
+        soup = self._soup_from_url(RESULTS_URL)
         matches = soup.find("div", {"class": "allres"}).find_all("div", {"class": "result"})
         for match in matches:
             event = match.find("span", {"class": "event-name"}).text.strip()
@@ -49,3 +73,8 @@ class HLTVClient:
             }
             ranking.append(ranking_item)
         return ranking
+
+
+print(
+    HLTVClient().get_matches()
+)

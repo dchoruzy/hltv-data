@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to hltv-data 👋 🎮</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-0.2.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
   </a>
@@ -63,6 +63,32 @@ Response:
     {"position": 28, "name": "Evil Geniuses", "points": 71},
     {"position": 29, "name": "FunPlus Phoenix", "points": 60},
     {"position": 30, "name": "DBL PONEY", "points": 58},
+]
+```
+
+
+#### Matches
+```sh
+hltv_client.get_matches()
+```
+
+```sh
+Response:
+
+[
+    {
+        "event":" ESEA Premier Season 38 Europe",
+        "date": "2021-09-14T19:00:00",
+        "team_1": "LDLC",
+        "team_2": "GamerLegion"
+    },
+    {
+        "event": "ESEA Premier Season 38 North America",
+        "date": "2021-09-15T02:00:00",
+        "team_1": "Extra Salt",
+        "team_2": "Triumph"
+    },
+    ...
 ]
 ```
 
