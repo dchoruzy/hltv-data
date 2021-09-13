@@ -135,7 +135,7 @@ Response:
 
 * Website: http://choruzy.com/
 * Github: [@dchoruzy](https://github.com/dchoruzy)
-* LinkedIn: [@dchoruzy](https://linkedin.com/in/https:\/\/www.linkedin.com\/in\/dchoruzy\/)
+* LinkedIn: [@dchoruzy](https://www.linkedin.com/in/dchoruzy/)
 
 ## 🤝 Contributing
 
