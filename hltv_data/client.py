@@ -36,26 +36,35 @@ class HLTVClient:
         return matches
 
 
-    def get_results(self):
+    def get_results(self, count=100):
         results = []
-        soup = self._soup_from_url(RESULTS_URL)
-        matches = soup.find("div", {"class": "allres"}).find_all("div", {"class": "result"})
-        for match in matches:
-            event = match.find("span", {"class": "event-name"}).text.strip()
-            teams = [item.text.strip() for item in match.find_all("div", {"class": "team"})]
-            result = [int(item.text.strip()) for item in match.find("td", {"class": "result-score"}).find_all("span")]
-            match_data = {
-                "event": event,
-                "team_1": {
-                    "name": teams[0],
-                    "result": result[0]
-                },
-                "team_2": {
-                    "name": teams[1],
-                    "result": result[1]
+        for i in range(count//100 + (count % 100 > 0)):
+            soup = self._soup_from_url(RESULTS_URL + f"?offset={i*100}")
+            matches = soup.find("div", {"class": "allres"}).find_all("div", {"class": "result-con"})
+            for match in matches:
+                event = match.find("span", {"class": "event-name"}).text.strip()
+                epoch = match.get("data-zonedgrouping-entry-unix")
+                teams = [item.text.strip() for item in match.find_all("div", {"class": "team"})]
+                result = [int(item.text.strip()) for item in match.find("td", {"class": "result-score"}).find_all("span")]
+                maps = match.find("div", {"class": "map-text"}).text.strip()
+                url = match.find("a", {"class": "a-reset"}).get("href")
+                match_data = {
+                    "event": event,
+                    "timestamp": epoch,
+                    "team_1": {
+                        "name": teams[0],
+                        "result": result[0]
+                    },
+                    "team_2": {
+                        "name": teams[1],
+                        "result": result[1]
+                    },
+                    "maps": maps,
+                    "url": url
                 }
-            }
-            results.append(match_data)
+                results.append(match_data)
+                if len(results) == count:
+                    break
         return results
 
     def get_ranking(self):
