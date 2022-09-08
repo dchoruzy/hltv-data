@@ -77,16 +77,18 @@ Response:
 
 [
     {
-        "event":" ESEA Premier Season 38 Europe",
-        "date": "2021-09-14T19:00:00",
-        "team_1": "LDLC",
-        "team_2": "GamerLegion"
+        "event": "ESL Pro League Season 16",
+        "date": "2022-09-10T16:00:00",
+        "team_1": "Outsiders",
+        "team_2": "MIBR",
+        "star_rating": 1
     },
     {
-        "event": "ESEA Premier Season 38 North America",
-        "date": "2021-09-15T02:00:00",
-        "team_1": "Extra Salt",
-        "team_2": "Triumph"
+        "event": "ESL Pro League Season 16",
+        "date": "2022-09-10T19:30:00",
+        "team_1": "FaZe",
+        "team_2": "G2",
+        "star_rating": 3
     },
     ...
 ]
