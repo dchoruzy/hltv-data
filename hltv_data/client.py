@@ -16,6 +16,9 @@ class HLTVClient:
         soup = BeautifulSoup(r.text, "html.parser")
         return soup
 
+    def _get_star_rating(self, event_el):
+        return len(event_el.find_all("i", {"class": "fa fa-star"}, partial=False))
+
     def get_matches(self):
         matches = []
         soup = self._soup_from_url(MATCHES_URL)
@@ -30,7 +33,8 @@ class HLTVClient:
                     "event": event,
                     "date": date,
                     "team_1": teams[0],
-                    "team_2": teams[1]
+                    "team_2": teams[1],
+                    "star_rating": self._get_star_rating(match)
                 }
                 matches.append(match_data)
         return matches
