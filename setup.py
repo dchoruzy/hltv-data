@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="hltv-data",
-    version="0.2.1",
+    version="0.3.0",
     author="Dariusz Choruzy",
     author_email="dariusz.choruzy@gmail.com",
     description="HLTV.org data",
