@@ -1,0 +1,28 @@
+[project]
+name = "hltv-data"
+version = "0.3.0"
+authors = [
+  { name="Dariusz Choruzy", email="dariusz.choruzy@gmail.com" },
+]
+dependencies = [
+    "beautifulsoup4",
+    "soupsieve",
+    "requests",
+]
+description = "HLTV.org data"
+readme = "README.md"
+license = { file="LICENCE" }
+requires-python = ">=3.6"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/dchoruzy/hltv-data"
+"Bug Tracker" = "https://github.com/dchoruzy/hltv-data/issues"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
