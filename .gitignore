@@ -86,3 +86,4 @@ venv.bak/
 .DS_Store
 .idea/
 test/
+__venv/
