@@ -6,7 +6,7 @@
   </a>
 </p>
 
-> Data from popular CS:GO website hltv.org
+> Data from popular Counter-Strike website hltv.org
 
 ## Install
 
