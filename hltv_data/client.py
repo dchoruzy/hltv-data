@@ -9,7 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 BASE_URL = "https://www.hltv.org"
 MATCHES_URL = f"{BASE_URL}/matches"
 RESULTS_URL = f"{BASE_URL}/results"
-RANKING_URL = f"{BASE_URL}/ranking/teams/2024/march/5"
+RANKING_URL = f"{BASE_URL}/ranking/teams"
 
 
 class HLTVClient:
